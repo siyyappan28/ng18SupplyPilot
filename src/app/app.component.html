@@ -1,0 +1,14 @@
+<div class="shell-container">
+    <app-top-banner
+      [isLoggedIn]="true"
+      userName="Supply Admin"
+      userImage="assets/user.png"
+    ></app-top-banner>
+
+    <div class="main-content">
+      <!-- Optional SideNav here -->
+      <div class="router-outlet">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

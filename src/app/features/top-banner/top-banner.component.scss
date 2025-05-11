@@ -1,0 +1,125 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background-color: #4169E1;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .left, .center, .right {
+    display: flex;
+    align-items: center;
+  }
+
+  .left {
+    gap: 0.5rem;
+    width: 30%;
+    justify-content: flex-start;
+    float: left;
+
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .app-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .center {
+    flex: 1;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 40%;
+    float: left;
+  }
+
+  .center input {
+    width: 60%;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .right {
+    gap: 1rem;
+    width: 30%;
+    justify-content: flex-end;  
+    float: right;  
+  }
+
+  .icon, .auth-link, .logout-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 0.25rem;
+  }
+
+  .user-name {
+    margin-right: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .center input {
+      width: 100%;
+    }
+  }
+
+/* Top Banner Styles */
+.top-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-banner .left-panel {
+  display: flex;
+  align-items: center;
+}
+
+.top-banner .left-panel img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.top-banner .center-panel {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.top-banner .right-panel {
+  display: flex;
+  align-items: center;
+}
+
+.top-banner .right-panel a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+}
+
+.top-banner .right-panel a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+<div class="p-6 bg-white rounded shadow">
+    <h2 class="text-2xl font-bold mb-4">User Dashboard</h2>
+
+    <div *ngIf="loading" class="text-blue-500">Loading users...</div>
+    <div *ngIf="error" class="text-red-500">{{ error }}</div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4" *ngIf="!loading && users.length">
+      <div *ngFor="let user of users" class="border rounded-lg p-4 shadow hover:shadow-md transition">
+        <img [src]="user.avatar" alt="{{ user.first_name+' '+user.last_name }}" class="w-20 h-20 rounded-full mb-2 mx-auto">
+        <h3 class="text-lg font-semibold text-center">{{ user.first_name+' '+user.last_name }}</h3>
+        <p class="text-sm text-gray-600 text-center">{{ user.email }}</p>        
+      </div>
+    </div>
+  </div>
