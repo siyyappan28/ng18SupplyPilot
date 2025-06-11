@@ -23,6 +23,11 @@ export const appRoutes: Routes = [
         loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent)
     },
     {
+        path: 'datacolumns',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/column-form/column-form.component').then(m => m.ColumnFormComponent)
+    },
+    {
         path: '',
         loadChildren: () => import('./features/auth/auth.routes').then(m => m.AUTH_ROUTES)
     },

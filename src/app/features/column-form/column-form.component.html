@@ -1,0 +1,57 @@
+<div class="column-form">
+  <h2>Create Column</h2>
+  <div>
+    <label>Column Name</label>
+    <input [(ngModel)]="column.columnName" (blur)="validate()" />
+    <span class="error" *ngIf="errors.columnName">{{ errors.columnName }}</span>
+  </div>
+  <div>
+    <label>Display Name</label>
+    <input [(ngModel)]="column.displayName" (blur)="validate()" />
+    <span class="error" *ngIf="errors.displayName">{{ errors.displayName }}</span>
+  </div>
+  <div>
+    <label>Description</label>
+    <input [(ngModel)]="column.description" (blur)="validate()" />
+    <span class="error" *ngIf="errors.description">{{ errors.description }}</span>
+  </div>
+  <div>
+    <label>Data Type</label>
+    <select [(ngModel)]="column.columnDataType" (change)="onTypeChange(column.columnDataType); validate()">
+      <option value="">Select Type</option>
+      <option *ngFor="let t of oracleTypes" [value]="t.type">{{ t.type }}</option>
+    </select>
+    <span class="error" *ngIf="errors.columnDataType">{{ errors.columnDataType }}</span>
+  </div>
+  <div *ngIf="sizes.length">
+    <label>Size</label>
+    <select [(ngModel)]="column.size" (change)="validate()">
+      <option value="">Select Size</option>
+      <option *ngFor="let s of sizes" [value]="s">{{ s }}</option>
+    </select>
+    <span class="error" *ngIf="errors.size">{{ errors.size }}</span>
+  </div>
+  <div>
+    <label><input type="checkbox" [(ngModel)]="column.isPrimary" (change)="validate()" /> Primary Key</label>
+    <label><input type="checkbox" [(ngModel)]="column.isMandatory" (change)="validate()" /> Mandatory</label>
+    <label><input type="checkbox" [(ngModel)]="column.isUnique" (change)="validate()" /> Unique</label>
+    <label><input type="checkbox" [(ngModel)]="column.isForeign" (change)="validate()" /> Foreign Key</label>
+  </div>
+  <div *ngIf="column.isForeign">
+    <label>Table</label>
+    <select #tableSelect (change)="onTableChange(tableSelect.value); validate()">
+      <option value="">Select Table</option>
+      <option *ngFor="let t of tables" [value]="t.name">{{ t.name }}</option>
+    </select>
+    <span class="error" *ngIf="errors.foreign">{{ errors.foreign }}</span>
+    <div *ngIf="selectedTable">
+      <label>Column</label>
+      <select [(ngModel)]="selectedForeignColumn" (change)="validate()">
+        <option value="">Select Column</option>
+        <option *ngFor="let c of selectedTable.columns" [value]="c">{{ c }}</option>
+      </select>
+      <span class="error" *ngIf="errors.foreignColumn">{{ errors.foreignColumn }}</span>
+    </div>
+  </div>
+  <button (click)="submit()">Create Column</button>
+</div>
