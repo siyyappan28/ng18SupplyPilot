@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UsersApiService } from './users-api.service' ; 
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,8 +11,7 @@ export class AuthService {
 
   private tokenKey = 'authToken';
   private baseUrl = 'https://reqres.in/api'; // Replace with your API base URL
-
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userAPIService: UsersApiService) { }  
 
   // Login method
   login(username: string, password: string): void {
@@ -21,6 +21,7 @@ export class AuthService {
     .subscribe({
       next: (response) => {
         localStorage.setItem(this.tokenKey, response.token); // Store token
+        this.userAPIService.getUserById(2); // Fetch user data
         this.router.navigate(['/dashboard']); // Navigate to home on successful login
       },
       error: (err) => {

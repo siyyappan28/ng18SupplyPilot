@@ -11,4 +11,11 @@
         <p class="text-sm text-gray-600 text-center">{{ user.email }}</p>        
       </div>
     </div>
+
+     <select formControlName="dataType">
+      <option *ngFor="let type of oracleDataTypes" [value]="type.name">
+        {{ type.name }}
+      </option>
+    </select>
+    
   </div>

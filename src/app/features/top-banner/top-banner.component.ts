@@ -20,6 +20,7 @@ export class TopBannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isAuthenticated();
+    
   }
 
   logout() {

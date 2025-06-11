@@ -1,30 +1,30 @@
 <nav class="navbar">
-    <!-- Left: Logo & App Name -->
-    <div class="left">
-      <img src="/assets/image/appLogo.png" alt="Logo" class="logo" />
-      <span class="app-name">Supply Pilot</span>
-    </div>
+  <!-- Left: Logo & App Name -->
+  <div class="left">
+    <img src="/assets/image/appLogo.png" alt="Logo" class="logo" />
+    <span class="app-name">Supply Pilot</span>
+  </div>
 
-    <!-- Center: Search Bar -->
-    <div class="center">
-      <input type="text" placeholder="Search products, orders..." />
-    </div>
+  <!-- Center: Search Bar -->
+  <div class="center">
+    <input type="text" placeholder="Search products, orders..." />
+  </div>
 
-    <!-- Right: Notification, Auth Links, User -->
-    <div class="right">
-      <a routerLink="/notifications" title="Notifications" class="icon">
-        🔔
-      </a>
-      
-      <ng-container *ngIf="isLoggedIn; else loggedOut">
-        <span class="user-name">{{ userName }}</span>
-        <img [src]="userImage" alt="User" class="avatar" />
-        <a (click)="logout()" class="logout-link">Logout</a>
-      </ng-container>
+  <!-- Right: Notification, Auth Links, User -->
+  <div class="right">
+    <a routerLink="/notifications" title="Notifications" class="icon">
+      🔔
+    </a>
 
-      <ng-template #loggedOut>
-        <a routerLink="/login" class="auth-link">Login</a>
-        <a routerLink="/register" class="auth-link">Register</a>
-      </ng-template>
-    </div>
-  </nav>
+    <ng-container *ngIf="isLoggedIn; else loggedOut">
+      <span class="user-name">{{ userName }}</span>
+      <img [src]="userImage" alt="User" class="avatar" />
+      <a (click)="logout()" class="logout-link">Logout</a>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <a routerLink="/login" class="auth-link">Login</a>
+      <a routerLink="/register" class="auth-link">Register</a>
+    </ng-template>   
+  </div>
+</nav>
